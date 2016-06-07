@@ -48,9 +48,9 @@ bootstrap(AppComponent, [
     `
 })
 export class AppComponent {
-    
+
     constructor(private toastyService:ToastyService) { }
-    
+
     addToast() {
         // Just add default Toast with title only
         this.toastyService.default('Hi there');
@@ -101,7 +101,7 @@ bootstrap(AppComponent, [
     `
 })
 export class AppComponent {
-    
+
     getTitle(num: number): string {
         return 'Countdown: ' + num;
     }
@@ -109,15 +109,15 @@ export class AppComponent {
     getMessage(num: number): string {
         return 'Seconds left: ' + num;
     }
-    
+
     constructor(private toastyService:ToastyService) { }
-    
+
     addToast() {
         let interval = 1000;
         let timeout = 5000;
         let seconds = timeout / 1000;
         let subscription: Subscription;
-        
+
         let toastOptions: ToastOptions = {
             title: this.getTitle(seconds),
             msg: this.getMessage(seconds),
@@ -155,8 +155,20 @@ export class AppComponent {
 }
 ```
 
+
+## How to change position of toast
+Here is an example of how to change the position of the toast:
+
+
+`<ng2-toasty position="top-right"></ng2-toasty>
+`
+
+-The toast container accepts an `@Input` of position, with possible values of:
+'bottom-right', 'bottom-left', 'top-right', 'top-left', 'top-center', 'bottom-center'.
+
+
 # License
  [MIT](/LICENSE)
 
-# Credits 
+# Credits
 Inspired by [angular-toasty](https://github.com/teamfa/angular-toasty)
